@@ -37,7 +37,7 @@ export class SorterService {
             else {
                 return this.direction * 1;
             }
-        })
+        });
     }
 
     isString(val: any) : boolean {
@@ -45,7 +45,7 @@ export class SorterService {
     }
 
     resolveProperty(path: string, obj: any) {
-        return path.split('.').reduce(function(prev, curr)) {
+        return path.split('.').reduce(function(prev, curr) {
             return (prev ? prev[curr] : undefined)
         }, obj || self)
     }
