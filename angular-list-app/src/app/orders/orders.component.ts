@@ -10,6 +10,7 @@ import { ICustomer, IOrder, IOrderItem } from '../shared/interfaces';
     styleUrls: [ './orders.component.css' ]
 })
 
+
 export class OrdersComponent implements OnInit {
 
     orders: IOrder[] = [];
@@ -19,6 +20,11 @@ export class OrdersComponent implements OnInit {
                 private route: ActivatedRoute ) { }
 
     ngOnInit(){
+        let id = +this.route.snapshot.paramMap.get('id');
+        this.dataService.getOrders(id).subscribe((orders: IOrder[]) => {
+            this.orders = this.orders;
+        });
+
         this.dataService.getCustomer(id).subscribe((customer: ICustomer) => {
             this.customer = customer;
         });
