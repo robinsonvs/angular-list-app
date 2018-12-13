@@ -1,16 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-
-import { SharedModule } from '../shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { CustomersModule } from '../customers/customers.module';
+import { OrdersRoutingModule } from './orders-routing.module';
+import { SharedModulo } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
+import { AppRoutingModule } from '../app-routing.module';
 import { OrdersComponent } from './orders.component';
-import { OrderRoutingModule } from './orders-routing.module';
 
 
 @NgModule({
-    imports: [ CommonModule, FormsModule, SharedModule, OrderRoutingModule ],
-    declarations: [ OrdersComponent ]
+  imports:      [ BrowserModule, 
+                  CustomersModule, 
+                  OrdersRoutingModule, 
+                  SharedModulo, 
+                  CoreModule, 
+                  AppRoutingModule ],
+  declarations: [ OrdersComponent ]
 })
 
 export class OrdersModule { }
